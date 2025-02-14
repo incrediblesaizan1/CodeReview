@@ -1,8 +1,5 @@
-const express = require("express")
-const app = express()
 
-app.get("/",(req,res)=>{
-    res.send("hello world")
-})
+const app = require("./src/app")
+
 
 app.listen(process.env.PORT || 3000)
