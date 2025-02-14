@@ -4,7 +4,7 @@ import {getData} from "./services/ai.services.js"
 
 app.get("/", async(req, res) => {
     const data = await getData()
-    res.send(data)
+    res.json(data)
 });
 
 export default app;
