@@ -5,7 +5,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
  export const getData = async () => {
     const prompt = `
-    how are you today
+    can you review my code
     `;
     const result = await model.generateContent(prompt);
     return result.response.text();
