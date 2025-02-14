@@ -8,6 +8,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     can you review my code
     `;
     const result = await model.generateContent(prompt);
+    console.log(result.response.text())
     return result.response.text();
 };
 
