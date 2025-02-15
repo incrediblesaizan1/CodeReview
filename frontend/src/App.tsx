@@ -27,7 +27,8 @@
         setLoading(false)
       } catch (error) {
         setError(true);
-        setErrorText("An error occurred during the request"+ error);
+        setErrorText("An unexpected error occurred please try again.");
+        console.log(error)
         setLoading(false)
       }
     };
