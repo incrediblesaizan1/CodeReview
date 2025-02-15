@@ -7,7 +7,7 @@
     const [code, setCode] = useState("");
     const [error, setError] = useState(false);
     const [errorText, setErrorText] = useState("");
-    const [response, setResponse] = useState(String);
+    const [response, setResponse] = useState<string>("");
     const [loading, setLoading] = useState(false);
 
     const onsubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,11 +18,18 @@
       }
       setLoading(true);
       setError(false);
-      const res: string = await axiosInstance.post("/", {
-        code: code,
-      });
-      setResponse(res.data);
-      setLoading(false);
+      
+      try {
+        const res = await axiosInstance.post<string>("/", {
+          code: code,
+        });
+        setResponse(res.data);
+        setLoading(false)
+      } catch (error) {
+        setError(true);
+        setErrorText("An error occurred during the request"+ error);
+        setLoading(false)
+      }
     };
 
     return (
