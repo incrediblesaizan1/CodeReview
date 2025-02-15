@@ -5,7 +5,7 @@ import cors from "cors"
 
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://incrediblesaizan1-travel-stories.vercel.app",
+    "https://incrediblesaizan1-code-review.vercel.app",
   ];
 
 app.use(express.json());
