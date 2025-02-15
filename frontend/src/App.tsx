@@ -4,8 +4,7 @@
   import Loader2 from "./constant/Loader";
 
   function App() {
-    const [logo, setLogo] = ("                  ")
-    const [code, setCode] = useState(logo);
+    const [code, setCode] = useState("");
     const [error, setError] = useState(false);
     const [errorText, setErrorText] = useState("");
     const [response, setResponse] = useState(String);
