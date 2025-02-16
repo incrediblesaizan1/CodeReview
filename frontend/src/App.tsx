@@ -27,32 +27,16 @@
         setLoading(false)
       } catch (error) {
         setError(true);
-        setErrorText("An unexpected error occurred please try again.");
+        setErrorText(`An unexpected error occurred please try again.`)
         console.log(error)
         setLoading(false)
       }
     };
 
     return (
-      <>
-            <h1 className=" bg-[#242424]  absolute p-4 text-white z-40 text-2xl font-[cursive]">Sk'ask</h1>
-        <div className="flex bg-[#242424] gap-4 p-4 h-full custom-scrollbar2">
-          <form onSubmit={onsubmit} className="relative ">
-            <textarea
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-              name="code"
-              className=" custom-scrollbar2 w-[50vw] text-white rounded-r h-[95vh] p-4 pl-24 bg-[#0a0a0a] resize-none"
-            ></textarea>
-            <button
-              type="submit"
-              className=" cursor-pointer absolute bottom-4 right-4 text-white"
-            >
-              <img src={arrow} className="bg-white rounded-3xl" alt="submit" />
-            </button>
-          </form>
-
-          <div className="bg-[#343434] w-[50vw] h-[95vh] overflow-auto custom-scrollbar2 rounded-r text-white p-4 pl-6">
+     <div className="p-4 bg-[#242424] w-full h-full">
+ <h1 className=" text-white text-2xl font-[cursive]">Sk'ask</h1>
+ <div className="bg-[#343434] w- text-center min-h-[290.9vh] overflow-auto custom-scrollbar2 rounded-r text-white p-4 pl-6">
             {error ? (
               <span className="text-red-700 text-center">{errorText}</span>
             ) : loading ? (
@@ -61,8 +45,23 @@
               <pre className="whitespace-pre-wrap">{typeof response === "string"? response:JSON.stringify(response, null,2)}</pre>
             )}
           </div>
-        </div>
-      </>
+          <div className=" fixed bottom-12 w-[97%] flex justify-center items-center">
+          <form onSubmit={onsubmit}>
+            <textarea
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              name="code"
+              className=" w-[50vw] text-white rounded p-4 bg-[#0a0a0a] resize-none"
+            ></textarea>
+            <button
+              type="submit"
+              className=" cursor-pointer relative -left-10 bottom-2 text-white"
+            >
+              <img src={arrow} className="bg-white rounded-3xl" alt="submit" />
+            </button> 
+          </form>
+          </div>
+     </div>
     );
   }
 
