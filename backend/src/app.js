@@ -3,41 +3,29 @@ const app = express();
 import {getData} from "./services/ai.services.js"
 import cors from "cors"
 
-// const allowedOrigins = [
-//     "http://localhost:5174",
-//     "https://incrediblesaizan1-code-review.vercel.app",
-//   ];
-
-  // app.use(
-  //     cors({
-  //       origin: function (origin, callback) {
-  //         if (!origin || allowedOrigins.includes(origin)) {
-  //           callback(null, true);
-  //         } else {
-  //           callback(new Error("Not allowed by CORS"));
-  //         }
-  //       },
-  //       credentials: true, 
-  //       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
-  //       allowedHeaders: ["Content-Type", "Authorization"], 
-  //     })
-  //   );
-
-  let whitelist = ['https://incrediblesaizan1-code-review.vercel.app', 'http://localhost:5174']
-  let corsOptions = {
-    origin: function (origin, callback) {
-      if (whitelist.indexOf(origin) !== -1) {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
-      }
-    }
-  }
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://incrediblesaizan1-code-review.vercel.app",
+  ];
 
 app.use(express.json());
+app.use(
+    cors({
+      origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
+      credentials: true, 
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
+      allowedHeaders: ["Content-Type", "Authorization"], 
+    })
+  );
 
 
-app.get("/",cors(corsOptions), async(req, res) => {
+app.get("/", async(req, res) => {
    res.send("hello")
 });
 
