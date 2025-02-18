@@ -3,12 +3,13 @@ const app = express();
 import {getData} from "./services/ai.services.js"
 import cors from "cors"
 
-const allowedOrigins = [
+const allowedOrigins =  [
   "http://localhost:5173",
   "https://incrediblesaizan1-code-review.vercel.app", 
-];
+  ];
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: function (origin, callback) {
