@@ -37,11 +37,11 @@ import cors from "cors"
 app.use(express.json());
 
 
-app.get("/", async(req, res) => {
+app.get("/",cors(corsOptions), async(req, res) => {
    res.send("hello")
 });
 
-app.post("/",cors(corsOptions),async(req,res)=>{
+app.post("/",async(req,res)=>{
     const question = req.body.code
     const data = await getData(question) 
     res.send(data)
