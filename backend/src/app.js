@@ -37,7 +37,7 @@ import cors from "cors"
 app.use(express.json());
 
 
-app.get("/",cors(corsOptions), async(req, res) => {
+app.get("/", async(req, res) => {
    res.send("hello")
 });
 
