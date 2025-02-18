@@ -11,11 +11,10 @@ const allowedOrigins = [
 
 app.use(express.json());
 
-// Debugging CORS middleware
 app.use(
     cors({
         origin: function (origin, callback) {
-            console.log("Request Origin:", origin);  // Debug log
+            console.log("Request Origin:", origin);  
             if (!origin || allowedOrigins.includes(origin)) {
                 callback(null, true);
             } else {
@@ -29,10 +28,8 @@ app.use(
     })
 );
 
-// Handle preflight requests
 app.options("*", cors());
 
-// Manually add CORS headers
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
