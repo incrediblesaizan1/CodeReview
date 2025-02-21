@@ -1,4 +1,4 @@
-  import { useState } from "react";
+  import { useRef, useState } from "react";
   import arrow from "../public/arrow.svg";
   import { axiosInstance } from "./function/axiosInstance";
   import Loader2 from "./constant/Loader";
@@ -8,10 +8,11 @@
     const [error, setError] = useState(false);
     const [errorText, setErrorText] = useState("");
     const [response, setResponse] = useState<string>("");
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState("");
 
     const onsubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+      setCode("")
       if (!code) {
         setError(true);
         return setErrorText("please enter some text ");
@@ -51,7 +52,7 @@
               value={code}
               onChange={(e) => setCode(e.target.value)}
               name="code"
-              className=" w-[50vw] text-white rounded p-4 bg-[#0a0a0a] resize-none"
+              className=" w-[50vw] min-h-44 text-white rounded p-4 bg-[#0a0a0a] custom-scrollbar2 resize-none"
             ></textarea>
             <button
               type="submit"
