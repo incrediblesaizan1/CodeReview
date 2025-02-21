@@ -1,4 +1,4 @@
-  import { useRef, useState } from "react";
+  import { useState } from "react";
   import arrow from "../public/arrow.svg";
   import { axiosInstance } from "./function/axiosInstance";
   import Loader2 from "./constant/Loader";
