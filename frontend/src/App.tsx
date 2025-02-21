@@ -8,7 +8,7 @@
     const [error, setError] = useState(false);
     const [errorText, setErrorText] = useState("");
     const [response, setResponse] = useState<string>("");
-    const [loading, setLoading] = useState("");
+    const [loading, setLoading] = useState<boolean>(false);
 
     const onsubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
