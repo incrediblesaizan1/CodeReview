@@ -1,11 +1,11 @@
-import { HashLoader } from "react-spinners";
-
-const Loader2 = () => {
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+const Loader = () => {
   return (
-    <div className="fixed inset-0 flex justify-center items-center backdrop-blur-md bg-white/50 z-100">
-      <HashLoader color="#0080d8" size={140} />
-    </div>
+    <Box sx={{ display: "flex", justifyContent: "center" }}>
+    <CircularProgress />
+  </Box>
   );
 };
 
-export default Loader2;
+export default Loader;
